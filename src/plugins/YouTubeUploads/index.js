@@ -21,7 +21,7 @@ module.exports = {
             let latestVideoDate = new Date(latestVideo);
 
             if (latestVideoDate.getDay() === new Date().getDay()) {
-                return console.log('latest video');
+                return;
             }
 
             let urlParams = [
