@@ -1,0 +1,10 @@
+New:
+    Added this function.
+    Added ``upload`` command.
+    Added a mention when Cosbot sends a message for a new Video.
+
+Changed:
+    Changed the checking schedule for the Automatic Upload function.
+
+Fixed:
+    Fixed the reply Messages to Cosbot mentions.

@@ -1,5 +1,4 @@
 const { client } = require('../shard');
-const mainDir = require('../../mainDir');
 const Discord = require('discord.js');
 const fs = require('fs');
 const config = require('../config');
@@ -11,7 +10,14 @@ module.exports = {
     enable() {
         function checkVideos() {
             console.log('checking videos...');
-            let latestVideo = JSON.parse(fs.readFileSync(`${mainDir}/data/latestVideo.json`, 'utf8'));
+
+            let latestVideoFile = `${__dirname}/latestVideo.json`;
+
+            if(!fs.existsSync(latestVideoFile)) {
+                fs.appendFileSync(latestVideoFile, '""');
+            }
+
+            let latestVideo = JSON.parse(fs.readFileSync(latestVideoFile, 'utf8'));
             let latestVideoDate = new Date(latestVideo);
 
             if (latestVideoDate.getDay() === new Date().getDay()) {
@@ -81,8 +87,8 @@ module.exports = {
                         let role = guild.roles.get('718069501119168603');
 
                         if(channel) {
-                            ServerNVchannel.send(role, newVidEmbed);
-                            fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
+                            channel.send(role, newVidEmbed);
+                            fs.writeFileSync(`${__dirname}/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
                             console.log('latest upload posted!');
                         }
                     }
