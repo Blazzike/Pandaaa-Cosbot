@@ -65,8 +65,6 @@ module.exports = {
 
                 thumbnail(video.id.videoId, function(thumbnailUrl) {
 
-                    
-
                     let newVidEmbed = new Discord.RichEmbed()
                         .setColor(0xBC1515)
                         .setThumbnail(`https://cdn.discordapp.com/attachments/572464268839092224/674602378649010196/TrapCosmos_medium.jpg`)
@@ -77,11 +75,12 @@ module.exports = {
                         .setFooter(`Uploaded: ${timestamp(video.snippet.publishedAt)}`);
 
                     if (video.snippet.publishedAt !== latestVideo) {
-                        let ServerNVchannel = client.channels.find('id', '674598834604605465');
-                        ServerNVchannel.send(newVidEmbed);
-
-                        fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
-                        console.log('latest upload posted!');
+                        let ServerNVchannel = client.channels.find('id', '472885726984536065');
+                        if(ServerNVchannel) {
+                            ServerNVchannel.send(newVidEmbed);
+                            fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
+                            console.log('latest upload posted!');
+                        }
                     }
 
                 });
