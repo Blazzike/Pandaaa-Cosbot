@@ -1,9 +1,9 @@
 const { client } = require('../../shard');
 const Discord = require('discord.js');
 const fs = require('fs');
-const config = require('../config');
+const config = require('../../config');
 const fetch = require('request');
-const fz = require('../util/fillZeros');
+const fz = require('../../util/fillZeros');
 
 module.exports = {
     name: 'YouTubeUploads',
