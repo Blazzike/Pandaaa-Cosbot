@@ -1,17 +1,17 @@
 const PluginUtil = require('../../util/plugin');
-const {RichEmbed} = require('discord.js');
-const globalConfig = require('../../config');
+const { RichEmbed } = require('discord.js');
+const config = require('../../config');
 
 const HelpCommand = {
     name: 'help',
     depends: ['Commands'],
     config: {
-        themeColor: 0xE91E63
+        themeColor: config.color
     },
     commands: {
         help: {
             aliases: ['commands'],
-            description: 'Simple help command.',
+            description: 'This message.',
             category: 'Useful',
             exec(label, args, msg) {
                 let categories = {};
@@ -41,7 +41,7 @@ const HelpCommand = {
                 });
 
                 msg.channel.send(new RichEmbed()
-                .setTitle(globalConfig.name + ' Commands')
+                .setTitle(config.name + ' Commands')
                 .setColor(HelpCommand.config.themeColor)
                 .setDescription(response.substr(0, response.length - 1)));
             }

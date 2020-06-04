@@ -4,7 +4,7 @@ module.exports = {
     name: 'UploadCommand',
     depends: ['Commands'],
     commands: {
-        ping: {
+        upload: {
             description: 'Gives you the Upload Notifications role!',
             category: 'Utility',
             async exec(label, args, msg) {
@@ -20,6 +20,7 @@ module.exports = {
                     await member.addRole(role);
                     return `${msg.author}, you now have the ${role.name} role!`
                 }
+
             }
         }
     }
