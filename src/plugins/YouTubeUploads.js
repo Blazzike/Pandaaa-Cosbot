@@ -11,7 +11,14 @@ module.exports = {
     enable() {
         function checkVideos() {
             console.log('checking videos...');
-            let latestVideo = JSON.parse(fs.readFileSync(`${mainDir}/data/latestVideo.json`, 'utf8'));
+
+            let latestVideoFile = `${mainDir}/data/latestVideo.json`;
+
+            if(!fs.existsSync(latestVideoFile)) {
+                fs.appendFileSync(latestVideoFile, '""');
+            }
+
+            let latestVideo = JSON.parse(fs.readFileSync(latestVideoFile, 'utf8'));
             let latestVideoDate = new Date(latestVideo);
 
             if (latestVideoDate.getDay() === new Date().getDay()) {

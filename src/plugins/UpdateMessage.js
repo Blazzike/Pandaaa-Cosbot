@@ -9,6 +9,13 @@ module.exports = {
     enable() {
 
         let package = JSON.parse(fs.readFileSync(`${mainDir}/package.json`, 'utf8'));
+
+        let latestUpdateVersionFile = `${mainDir}/data/latestUpdate.json`;
+
+        if(!fs.existsSync(latestUpdateVersionFile)) {
+            fs.appendFileSync(latestUpdateVersionFile, '""');
+        }
+
         let latestUpdateVersion = JSON.parse(fs.readFileSync(`${mainDir}/data/latestUpdate.json`, 'utf8'));
         let versionFileName = `v${package.versions}.update`;
     
