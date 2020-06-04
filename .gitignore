@@ -1,2 +1,4 @@
 node_modules/
+src/plugins/UpdateMessage/latestUpdate.json
+src/plugins/YouTubeUploads/latestVideo.json
 start.bat
