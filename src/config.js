@@ -16,11 +16,8 @@ module.exports = {
         'consoleCommands/SayConsoleCommand',
         'consoleCommands/ReloadConsoleCommand',
         'jake',
-<<<<<<< HEAD
+        'MentionRelply',
         'UpdateMessage',
-=======
-        // Own
->>>>>>> upstream/master
         'YouTubeUploads',
     ]
 };
