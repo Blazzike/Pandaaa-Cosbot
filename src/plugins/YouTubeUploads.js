@@ -81,7 +81,7 @@ module.exports = {
                         let role = guild.roles.get('718069501119168603');
 
                         if(channel) {
-                            ServerNVchannel.send(role, newVidEmbed);
+                            channel.send(role, newVidEmbed);
                             fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
                             console.log('latest upload posted!');
                         }
