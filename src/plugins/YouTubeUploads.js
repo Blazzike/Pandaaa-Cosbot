@@ -65,8 +65,6 @@ module.exports = {
 
                 thumbnail(video.id.videoId, function(thumbnailUrl) {
 
-                    
-
                     let newVidEmbed = new Discord.RichEmbed()
                         .setColor(0xBC1515)
                         .setThumbnail(`https://cdn.discordapp.com/attachments/572464268839092224/674602378649010196/TrapCosmos_medium.jpg`)
@@ -77,11 +75,16 @@ module.exports = {
                         .setFooter(`Uploaded: ${timestamp(video.snippet.publishedAt)}`);
 
                     if (video.snippet.publishedAt !== latestVideo) {
-                        let ServerNVchannel = client.channels.find('id', '674598834604605465');
-                        ServerNVchannel.send(newVidEmbed);
 
-                        fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
-                        console.log('latest upload posted!');
+                        let guild = client.guilds.get('472885726275436556');
+                        let channel = guild.channels.get('472885726984536065');
+                        let role = guild.roles.get('718069501119168603');
+
+                        if(channel) {
+                            ServerNVchannel.send(role, newVidEmbed);
+                            fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
+                            console.log('latest upload posted!');
+                        }
                     }
 
                 });
@@ -91,12 +94,13 @@ module.exports = {
         checkVideos();
 
         let schedule = [
+            '17:00:45', '17:15:00', '17:30:00', '17:45:00',
             '18:00:45', '18:15:00', '18:30:00', '18:45:00',
             '19:00:45', '19:15:00', '19:30:00', '19:45:00',
-            '20:00:00', '20:30:00', '21:00:00', '21:30:00',
-            '22:00:00', '22:30:00', '23:00:00', '23:30:00',
-            '00:00:00', '00:30:00', '01:00:00', '01:30:00',
-            '02:00:00', '02:30:00', '03:00:00', '03:30:00',
+            '20:00:45', '20:30:00', '21:00:00', '21:30:00',
+            '22:00:45', '22:30:00', '23:00:00', '23:30:00',
+            '00:00:45', '00:30:00', '01:00:00', '01:30:00',
+            '02:00:45', '02:30:00', '03:00:00', '03:30:00',
         ];
 
         function pad(number, size) {

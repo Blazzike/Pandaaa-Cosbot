@@ -1,21 +1,23 @@
 module.exports = {
     name: 'Cosbot',
     prefix: 'c!',
-    token: '' || process.env.TOKEN,
+    color: 0xE91E63,
+    token: process.env.TOKEN,
     shards: 'auto',
-    youtube_api_token: '' || process.env.YOUTUBE_API_TOKEN,
+    youtube_api_token: process.env.YOUTUBE_API_TOKEN,
     plugins: [
-        // Normal
         'Activity',
         'Commands',
         'commands/help',
         'commands/ping',
+        'commands/upload',
         'Console',
         'consoleCommands/PluginsConsoleCommand',
         'consoleCommands/SayConsoleCommand',
         'consoleCommands/ReloadConsoleCommand',
         'jake',
-        // Own
+        'MentionRelply',
+        'UpdateMessage',
         'YouTubeUploads',
     ]
 };

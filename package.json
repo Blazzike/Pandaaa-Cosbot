@@ -1,6 +1,6 @@
 {
   "name": "Cosbot",
-  "version": "2.0.0",
+  "version": "1.1.3",
   "description": "The (official) Trap Cosmos Discord Bot",
   "framework": "Discord.js Plugin loading Bot Framework",
   "main": "./src/index.js",
