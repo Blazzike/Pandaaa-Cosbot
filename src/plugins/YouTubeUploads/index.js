@@ -1,5 +1,4 @@
 const { client } = require('../shard');
-const mainDir = require('../../mainDir');
 const Discord = require('discord.js');
 const fs = require('fs');
 const config = require('../config');
@@ -12,7 +11,7 @@ module.exports = {
         function checkVideos() {
             console.log('checking videos...');
 
-            let latestVideoFile = `${mainDir}/data/latestVideo.json`;
+            let latestVideoFile = `${__dirname}/latestVideo.json`;
 
             if(!fs.existsSync(latestVideoFile)) {
                 fs.appendFileSync(latestVideoFile, '""');
@@ -89,7 +88,7 @@ module.exports = {
 
                         if(channel) {
                             channel.send(role, newVidEmbed);
-                            fs.writeFileSync(`${mainDir}/data/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
+                            fs.writeFileSync(`${__dirname}/latestVideo.json`, JSON.stringify(video.snippet.publishedAt));
                             console.log('latest upload posted!');
                         }
                     }
