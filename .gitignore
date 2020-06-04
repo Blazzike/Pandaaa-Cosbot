@@ -1,4 +1,5 @@
 node_modules/
 src/plugins/UpdateMessage/latestUpdate.json
 src/plugins/YouTubeUploads/latestVideo.json
+src/config.test.js
 start.bat

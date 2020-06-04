@@ -1,9 +1,9 @@
 const { client } = require('../../shard');
 const Discord = require('discord.js');
 const fs = require('fs');
-const config = require('../config');
+const config = require('../../config');
 const fetch = require('request');
-const fz = require('../util/fillZeros');
+const fz = require('../../util/fillZeros');
 
 module.exports = {
     name: 'YouTubeUploads',
@@ -82,9 +82,9 @@ module.exports = {
 
                     if (video.snippet.publishedAt !== latestVideo) {
 
-                        let guild = client.guilds.get('472885726275436556');
-                        let channel = guild.channels.get('472885726984536065');
-                        let role = guild.roles.get('718069501119168603');
+                        let guild = client.guilds.get(config.youtube_uploads.guild);
+                        let channel = guild.channels.get(config.youtube_uploads.channel);
+                        let role = guild.roles.get(config.youtube_uploads.role);
 
                         if(channel) {
                             channel.send(role, newVidEmbed);
