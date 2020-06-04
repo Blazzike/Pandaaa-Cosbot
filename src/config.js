@@ -15,6 +15,7 @@ module.exports = {
         'consoleCommands/PluginsConsoleCommand',
         'consoleCommands/SayConsoleCommand',
         'consoleCommands/ReloadConsoleCommand',
+        'jake',
         'UpdateMessage',
         'YouTubeUploads',
     ]
