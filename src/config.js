@@ -23,6 +23,6 @@ module.exports = {
         'jake',
         'MentionRelply',
         'UpdateMessage',
-        'YouTubeUploads',
+//        'YouTubeUploads'
     ]
 };
